@@ -54,7 +54,7 @@ public class PetListAdapter extends ArrayAdapter<Pet> {
 
     @Override
     public Pet getItem(int position) {
-        return (null != mPets) ? mPets.get(position) : null;
+        return (null != mPets && mPets.size() > position) ? mPets.get(position) : null;
     }
 
     @Override

@@ -2,16 +2,23 @@ package org.treatsforlife.app;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.facebook.Session;
+import com.koushikdutta.ion.Ion;
+import com.squareup.otto.Subscribe;
 
 import org.treatsforlife.app.entities.User;
 import org.treatsforlife.app.events.PetListRefreshRequestedEvent;
+import org.treatsforlife.app.events.PetListRowClickedEvent;
+import org.treatsforlife.app.fragments.PetDetailsFragment;
 import org.treatsforlife.app.fragments.PetListFragment;
+import org.treatsforlife.app.infra.Globals;
 import org.treatsforlife.app.providers.BusProvider;
 
 public class MainActivity extends ActionBarActivity {
@@ -22,6 +29,8 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         if (savedInstanceState == null) {
+            Ion.getDefault(MainActivity.this).configure().setLogging("TFL Ion", Log.INFO);
+
             getSupportFragmentManager()
                     .beginTransaction()
                     .add(android.R.id.content, new PetListFragment())
@@ -54,6 +63,15 @@ public class MainActivity extends ActionBarActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Subscribe
+    public void displayPetDetailsFragment(PetListRowClickedEvent event) {
+        PetDetailsFragment petDetailsFragment = new PetDetailsFragment();
+        Bundle args = new Bundle();
+        args.putString(Globals.EXTRA_PET_ID, event.petID);
+        petDetailsFragment.setArguments(args);
+        getSupportFragmentManager().beginTransaction().replace(android.R.id.content, petDetailsFragment).addToBackStack(null).commit();
     }
 
     public void logout() {

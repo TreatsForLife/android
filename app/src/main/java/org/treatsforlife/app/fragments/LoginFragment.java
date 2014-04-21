@@ -29,7 +29,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-public class LoginFragment extends Fragment {
+public class LoginFragment extends BaseFragment {
 
     //Views
     @InjectView(R.id.viewSwitcher) ViewSwitcher mViewSwitcher;
@@ -66,7 +66,6 @@ public class LoginFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        BusProvider.getInstance().register(this);
         // For scenarios where the main activity is launched and user
         // session is not null, the session state change notification
         // may not be triggered. Trigger it if it's open/closed.
@@ -86,7 +85,6 @@ public class LoginFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        BusProvider.getInstance().unregister(this);
         uiHelper.onPause();
     }
 

@@ -8,4 +8,8 @@ public interface Globals {
 
     //API
     public static final String API_BASE_URL = "http://tfl.bchmn.com/";
+    public static final String API_PET_URL = API_BASE_URL + "pet/";
+
+    //Extras
+    public static final String EXTRA_PET_ID = "TFL_PET_ID";
 }
