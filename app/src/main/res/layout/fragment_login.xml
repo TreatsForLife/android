@@ -38,17 +38,16 @@
             <ProgressBar
                 style="?android:attr/progressBarStyleLarge"
                 android:id="@+id/progressBar"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"/>
+                android:layout_centerInParent="true" />
 
             <Button
                 android:id="@+id/btnFlip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_above="@+id/progressBar"
+                android:layout_centerInParent="true"
                 android:text="@string/info_title"
                 android:textSize="22sp"
                 android:textColor="@android:color/white"
@@ -74,6 +73,7 @@
                     android:text="@string/info_text"
                     android:layout_gravity="center_vertical|left"
                     android:gravity="left"
+                    android:textColor="@android:color/black"
                     android:id="@+id/textView"/>
 
                 <Button

@@ -15,4 +15,6 @@
         Vestibulum laoreet ipsum ultricies elit mollis, eget volutpat erat consectetur. Sed vitae felis sit amet velit congue pulvinar.
         Nunc et tortor faucibus, facilisis neque et, dictum turpis. Maecenas in justo odio. Cras a posuere velit. Vestibulum id laoreet odio.
     </string>
+    <string name="refresh">Refresh</string>
+    <string name="logout">Log Out</string>
 </resources>

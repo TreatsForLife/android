@@ -7,15 +7,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.ViewSwitcher;
 
+import com.facebook.Request;
+import com.facebook.Response;
 import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
+import com.facebook.model.GraphUser;
 import com.facebook.widget.LoginButton;
 
 import org.treatsforlife.app.R;
 import org.treatsforlife.app.animations.AnimationFactory;
+import org.treatsforlife.app.entities.User;
 import org.treatsforlife.app.events.LoginCompleteEvent;
 import org.treatsforlife.app.infra.Logger;
 import org.treatsforlife.app.providers.BusProvider;
@@ -26,15 +31,22 @@ import butterknife.OnClick;
 
 public class LoginFragment extends Fragment {
 
-    private UiLifecycleHelper uiHelper;
+    //Views
     @InjectView(R.id.viewSwitcher) ViewSwitcher mViewSwitcher;
     @InjectView(R.id.authButton) LoginButton mLoginButton;
+    @InjectView(R.id.progressBar) ProgressBar mProgressBar;
+
+    //Facebook Auth
+    private UiLifecycleHelper uiHelper;
     Session.StatusCallback callback = new Session.StatusCallback() {
         @Override
         public void call(Session session, SessionState state, Exception exception) {
             onSessionStateChange(session, state, exception);
         }
     };
+
+    //Misc
+    private boolean mIsGettingUserInfo = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -97,9 +109,20 @@ public class LoginFragment extends Fragment {
     }
 
     private void onSessionStateChange(Session session, SessionState state, Exception exception) {
-        if (state.isOpened()) {
-            BusProvider.getInstance().post(new LoginCompleteEvent());
-            Logger.l("Logged in...");
+        if (state.isOpened() && !mIsGettingUserInfo) {
+            mIsGettingUserInfo = true;
+            Request.newMeRequest(session, new Request.GraphUserCallback() {
+                @Override
+                public void onCompleted(GraphUser graphUser, Response response) {
+                    User user = new User();
+                    user.id = graphUser.getId();
+                    user.fullName = graphUser.getName();
+                    user.persist(getActivity());
+                    BusProvider.getInstance().post(new LoginCompleteEvent());
+                    Logger.l("Logged in...");
+                    mIsGettingUserInfo = false;
+                }
+            }).executeAsync();
         } else if (state.isClosed()) {
             Logger.l("Logged out...");
         }
