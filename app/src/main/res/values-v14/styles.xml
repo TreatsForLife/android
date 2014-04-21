@@ -1,7 +1,8 @@
 <resources>
+
     <!-- Base application theme. -->
     <style name="Theme.TFL" parent="Theme.AppCompat.Light">
-        <item name="actionBarStyle">@style/Theme.TFL.ActionBar</item>
+        <item name="android:actionBarStyle">@style/Theme.TFL.ActionBar</item>
     </style>
 
     <style name="Theme.TFL.Splash" parent="Theme.TFL.NoActionBar">
@@ -10,17 +11,16 @@
     </style>
 
     <style name="Theme.TFL.NoActionBar" parent="Theme.AppCompat.Light">
-        <item name="windowActionBar">false</item>
+        <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
     </style>
 
     <style name="Theme.TFL.ActionBar" parent="Widget.AppCompat.Light.ActionBar.Solid">
-        <item name="background">@color/gray_dark</item>
-        <item name="titleTextStyle">@style/Theme.TFL.ActionBar.TitleTextStyle</item>
+        <item name="android:background">@color/gray_dark</item>
+        <item name="android:titleTextStyle">@style/Theme.TFL.ActionBar.TitleTextStyle</item>
     </style>
 
     <style name="Theme.TFL.ActionBar.TitleTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">@android:color/white</item>
     </style>
 </resources>
-

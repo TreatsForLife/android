@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">Treats For Life</string>
-    <string name="app_id">262700727225341</string>
-
+    <string name="app_fb_id">262700727225341</string>
+    <string name="info_title"><u>Info</u></string>
+    <string name="info_text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet condimentum est, quis convallis augue.
+        Aenean a justo nec massa rhoncus accumsan a sit amet purus. Duis et urna at justo consequat vehicula eu vitae dolor.
+        Quisque sit amet egestas justo. Sed luctus sodales leo, id aliquet sem fringilla ut. Integer a pulvinar ipsum.
+        Sed pellentesque turpis at mi molestie luctus.
+        \n\n
+        Integer a ultrices est. Vestibulum facilisis diam eu risus tempor ullamcorper. Etiam tristique, metus at ultrices accumsan,
+        mauris dui aliquet tellus, ut elementum ipsum dui ac elit. Fusce ultricies quis enim ac ultricies. Aliquam erat volutpat.
+        \n\n
+        Vestibulum laoreet ipsum ultricies elit mollis, eget volutpat erat consectetur. Sed vitae felis sit amet velit congue pulvinar.
+        Nunc et tortor faucibus, facilisis neque et, dictum turpis. Maecenas in justo odio. Cras a posuere velit. Vestibulum id laoreet odio.
+    </string>
 </resources>

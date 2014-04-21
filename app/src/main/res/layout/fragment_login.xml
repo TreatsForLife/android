@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_dark">
+    android:background="@color/bg_dark">
 
     <ViewSwitcher
         android:id="@+id/viewSwitcher"
@@ -44,25 +44,47 @@
                 android:layout_centerHorizontal="true"/>
 
             <Button
+                android:id="@+id/btnFlip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Info"
-                android:id="@+id/btnFlip"
+                android:layout_centerHorizontal="true"
                 android:layout_above="@+id/progressBar"
-                android:layout_centerHorizontal="true"/>
+                android:text="@string/info_title"
+                android:textSize="22sp"
+                android:textColor="@android:color/white"
+                android:background="@android:color/transparent"/>
 
         </RelativeLayout>
-        <RelativeLayout
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@android:color/white">
+            android:background="@color/yellow_pale">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Back"
-                android:id="@+id/btnBack"
-                android:layout_centerHorizontal="true"/>
-        </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/ACTIVITY_PADDING"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/info_text"
+                    android:layout_gravity="center_vertical|left"
+                    android:gravity="left"
+                    android:id="@+id/textView"/>
+
+                <Button
+                    android:id="@+id/btnBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Back"
+                    android:layout_marginTop="@dimen/ELMENT_VERTICAL_MARGIN"
+                    android:layout_below="@id/textView"
+                    android:layout_centerHorizontal="true"/>
+            </LinearLayout>
+        </ScrollView>
     </ViewSwitcher>
 </LinearLayout>
