@@ -29,7 +29,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         if (savedInstanceState == null) {
-            Ion.getDefault(MainActivity.this).configure().setLogging("TFL Ion", Log.INFO);
+            Ion.getDefault(MainActivity.this).configure().setLogging("TFL Ion", Log.DEBUG);
 
             getSupportFragmentManager()
                     .beginTransaction()
