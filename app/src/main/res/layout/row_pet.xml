@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="@dimen/PET_LIST_ROW_HEIGHT">
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/PET_LIST_ROW_HEIGHT"
+    android:orientation="vertical"
+    android:background="@drawable/black_border">
 
     <ImageView
+        android:id="@+id/ivPetRow"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:scaleType="centerCrop"
-        android:id="@+id/ivPetRow" />
+        android:padding="1dp"
+        android:clipToPadding="false"
+        android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/tvPetRowName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:background="@android:color/white"
+        android:padding="8dp"
+        android:textColor="@color/gray_dark"
         android:textSize="18sp"
-        android:textColor="@color/yellow_pale"
-        android:textStyle="bold"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:gravity="center_horizontal"/>
+        android:textStyle="bold" />
 </LinearLayout>

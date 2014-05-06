@@ -19,5 +19,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
         android:divider="@android:color/transparent"
-        android:dividerHeight="@dimen/ELMENT_VERTICAL_MARGIN"/>
+        android:dividerHeight="@dimen/ACTIVITY_PADDING"
+        android:padding="@dimen/ACTIVITY_PADDING"
+        android:clipToPadding="false"/>
 </RelativeLayout>
