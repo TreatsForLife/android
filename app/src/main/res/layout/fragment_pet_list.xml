@@ -21,5 +21,6 @@
         android:divider="@android:color/transparent"
         android:dividerHeight="@dimen/ACTIVITY_PADDING"
         android:padding="@dimen/ACTIVITY_PADDING"
-        android:clipToPadding="false"/>
+        android:clipToPadding="false"
+        android:scrollbarStyle="outsideOverlay"/>
 </RelativeLayout>
